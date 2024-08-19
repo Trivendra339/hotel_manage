@@ -1,15 +1,30 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar_route.dart';
 import 'package:another_flushbar/flushbar.dart';
 
-class ToastMessage{
+class Utils{
+
+  static void fieldFocusChange(BuildContext context,FocusNode current, FocusNode nextFocus){
+    current.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
 
 
-  static void flushBarMessage({required String message, required BuildContext context,Color bgColor = Colors.black,Color msgColor = Colors.white}){
+  static void flushBarMessage(
+      {required String message,
+        required BuildContext context,
+        Color bgColor = Colors.black,
+        Color msgColor = Colors.white,
+        Color iconColor = Colors.white,
+        IconData? icon
+        }){
+
 
     showFlushbar(context: context,
         flushbar: Flushbar(
           message: message,
+      icon: Icon(icon,color: iconColor,),
 
       forwardAnimationCurve: Curves.decelerate,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -20,14 +35,14 @@ class ToastMessage{
       reverseAnimationCurve: Curves.easeOut,
 
       backgroundColor: bgColor,
-      flushbarPosition: FlushbarPosition.BOTTOM,
+      flushbarPosition: FlushbarPosition.TOP,
       positionOffset: 20,
 
 
 
       messageColor: msgColor,
 
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     )..show(context)
     );
   }

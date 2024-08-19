@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-TextStyle mTextStyle10({
+TextStyle myTextStyle10({
   Color textColor = Colors.white,
   FontWeight textFontWeight = FontWeight.normal
 }){
@@ -13,7 +13,7 @@ TextStyle mTextStyle10({
   );
 }
 
-TextStyle mTextStyle15({
+TextStyle myTextStyle15({
   Color textColor = Colors.white,
   FontWeight textFontWeight = FontWeight.normal
 }){
@@ -24,7 +24,18 @@ TextStyle mTextStyle15({
   );
 }
 
-TextStyle mTextStyle20({
+TextStyle myTextStyle18({
+  Color textColor = Colors.white,
+  FontWeight textFontWeight = FontWeight.normal
+}){
+  return TextStyle(
+      fontSize: 18,
+      color: textColor,
+      fontWeight: textFontWeight
+  );
+}
+
+TextStyle myTextStyle20({
   Color textColor = Colors.white,
   FontWeight textFontWeight = FontWeight.normal
 }){
@@ -35,7 +46,7 @@ TextStyle mTextStyle20({
   );
 }
 
-TextStyle mTextStyle25({
+TextStyle myTextStyle25({
   Color textColor = Colors.white,
   FontWeight textFontWeight = FontWeight.normal
 }){
@@ -45,3 +56,23 @@ TextStyle mTextStyle25({
       fontWeight: textFontWeight
   );
 }
+
+TextStyle myTextStyle30({
+  Color textColor = Colors.white,
+  FontWeight textFontWeight = FontWeight.normal
+}){
+  return TextStyle(
+      fontSize: 30,
+      color: textColor,
+      fontWeight: textFontWeight
+  );}
+
+TextStyle myTextStyle35({
+  Color textColor = Colors.white,
+  FontWeight textFontWeight = FontWeight.normal
+}){
+  return TextStyle(
+      fontSize: 35,
+      color: textColor,
+      fontWeight: textFontWeight
+  );}

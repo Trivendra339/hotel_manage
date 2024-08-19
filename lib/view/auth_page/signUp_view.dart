@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/toast_message.dart';
-import '../../utils/ui_helper/app_colors.dart';
-import '../../utils/ui_helper/text_style.dart';
+import '../../utils/utils.dart';
+import '../../res/components/app_colors.dart';
+import '../../res/components/text_style.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({super.key});
@@ -25,18 +25,18 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                 Container(
                   height: MediaQuery.of(context).size.height / 2.5,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white
                   ),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height / 2.5,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: MyAppColors.topDesignColor,
                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))
                   ),
-                  child: Center(child: Text('Welcome my app',style: mTextStyle20())),
+                  child: Center(child: Text('Welcome my app',style: myTextStyle20())),
                 )
               ],
             ),
@@ -45,7 +45,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 1.666,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyAppColors.topDesignColor,
                 ),
               ),
@@ -53,17 +53,17 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.only(top: 40,bottom: 30),
+                padding: const EdgeInsets.only(top: 40,bottom: 30),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 1.666,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(60))
                 ),
                 child: Column(
                   children: [
-                    InkWell(onTap: (){ToastMessage.flushBarMessage(message: "Login Kar Lo Bhai", context: context);},
-                        child: Text("Login Page",style: mTextStyle20(textColor: Colors.black),))
+                    InkWell(onTap: (){Utils.flushBarMessage(message: "Login Kar Lo Bhai", context: context);},
+                        child: Text("Login Page",style: myTextStyle20(textColor: Colors.black),))
                   ],
                 ),
               ),

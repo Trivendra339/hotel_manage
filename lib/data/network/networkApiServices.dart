@@ -13,7 +13,7 @@ class NetworkApiServices extends BaseApiServices{
   Future getApiResponse(String url) async{
    dynamic responseJson;
    try{
-     Response response = await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+     Response response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
      responseJson = apiResponse(response);
    }catch(e){
      throw FetchDataException("No Internet Connection");
@@ -26,7 +26,7 @@ class NetworkApiServices extends BaseApiServices{
   Future postApiResponse(String url, dynamic data) async{
     dynamic responseJson ;
    try{
-     Response response = await http.post(Uri.parse(url),body: data).timeout(Duration(seconds: 10));
+     Response response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 10));
      responseJson = apiResponse(response);
    }on SocketException{
      throw FetchDataException("No Internet Connection");
@@ -39,7 +39,7 @@ class NetworkApiServices extends BaseApiServices{
   Future updateApiResponse(String url, data) async{
     dynamic responseJson ;
     try{
-      Response response = await http.post(Uri.parse(url),body: data).timeout(Duration(seconds: 10));
+      Response response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 10));
       responseJson = apiResponse(response);
     }on SocketException{
       throw FetchDataException("No Internet Connection");
@@ -52,7 +52,7 @@ class NetworkApiServices extends BaseApiServices{
   Future putApiResponse(String url, data) async{
     dynamic responseJson ;
     try{
-      Response response = await http.post(Uri.parse(url),body: data).timeout(Duration(seconds: 10));
+      Response response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 10));
       responseJson = apiResponse(response);
     }on SocketException{
       throw FetchDataException("No Internet Connection");
@@ -65,7 +65,7 @@ class NetworkApiServices extends BaseApiServices{
   Future deleteApiResponse(String url, data) async{
     dynamic responseJson ;
     try{
-      Response response = await http.post(Uri.parse(url),body: data).timeout(Duration(seconds: 10));
+      Response response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 10));
       responseJson = apiResponse(response);
     }on SocketException{
       throw FetchDataException("No Internet Connection");

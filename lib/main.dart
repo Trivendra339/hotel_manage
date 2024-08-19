@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_manage/utils/routes/routes_View_Page.dart';
+import 'package:hotel_manage/utils/routes/routes_model.dart';
 import 'package:hotel_manage/utils/routes/routes_name.dart';
+import 'package:hotel_manage/view_model/tenant_viewModel/tenant_viewModel.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,16 +14,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider<TenantHomeViewModel>(
+      create: (context)=> TenantHomeViewModel(),
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      initialRoute: RouteName.Splash_view,
-      onGenerateRoute: Routes.generateRoute,
+      initialRoute: RouteName.Home_view,
+      onGenerateRoute: AppRoutes.generateRoute,
+    ),
     );
   }
 }
