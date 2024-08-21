@@ -155,7 +155,6 @@ class _Home_ScreenState extends State<Home_Screen>
 
   @override
   Widget build(BuildContext context) {
-    final myProvide = Provider.of<TenantHomeViewModel>(context);
 
     return Scaffold(
         backgroundColor: Colors.white,
