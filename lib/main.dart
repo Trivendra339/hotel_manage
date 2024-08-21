@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: RouteName.Home_view,
       onGenerateRoute: AppRoutes.generateRoute,
+      // home: Home_Screen(),
     ),
     );
   }

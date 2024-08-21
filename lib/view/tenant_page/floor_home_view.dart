@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:hotel_manage/res/components/app_colors.dart';
 import 'package:hotel_manage/res/components/text_style.dart';
 import 'package:hotel_manage/utils/appBar_navBar/navBar.dart';
 import 'package:hotel_manage/view_model/tenant_viewModel/tenant_viewModel.dart';
@@ -106,7 +105,31 @@ class _Home_ScreenState extends State<Home_Screen>
     return false;
   }
 
-  void showAlertDialog() {
+  void showAddFoorDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: AlertDialog(
+              title: Text("Add Floor"),
+              content: TextField(
+                decoration: InputDecoration(hintText: "Enter Floor Name"),
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Cancel")),
+                TextButton(onPressed: () {}, child: const Text("Save")),
+              ],
+            ),
+          );
+        });
+  }
+
+  void showAddRoomDialog() {
     showDialog(
         context: context,
         builder: (context) {
@@ -188,7 +211,7 @@ class _Home_ScreenState extends State<Home_Screen>
                                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Icon(Icons.home),
-                                           IconButton(onPressed: (){showAlertDialog();}, icon: Icon(Icons.add))
+                                           IconButton(onPressed: (){showAddFoorDialog();}, icon: Icon(Icons.add))
 
                                           ],
                                         ),
@@ -217,7 +240,7 @@ class _Home_ScreenState extends State<Home_Screen>
                 hotelTween: _hotelTween,
                 iconTween: _iconTween,
                 addIconButton: () {
-                  showAlertDialog();
+                  showAddFoorDialog();
                 },
                 menuIconButton: () {},
               ),

@@ -1,9 +1,3 @@
-
-import 'package:hotel_manage/view/admin_page/admin_home_view.dart';
-import 'package:hotel_manage/view/auth_page/demo_enter_code.dart';
-import 'package:hotel_manage/view/auth_page/login_signUp_view.dart';
-import 'package:hotel_manage/view/tenant_page/floor_data_view.dart';
-
 class RouteName{
 
   static const Splash_view = "Splash_Screen";

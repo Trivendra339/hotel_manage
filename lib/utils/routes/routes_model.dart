@@ -45,7 +45,7 @@ class AppRoutes {
 
     // Tenant Route :-
       case RouteName.Home_view:
-        return MaterialPageRoute(builder: (context) => const Home_Screen());
+        return MaterialPageRoute(builder: (context) =>  Home_Screen());
       case RouteName.FloorDataView:
         return MaterialPageRoute(builder: (context) =>  Floor_Data_Screen());
 
