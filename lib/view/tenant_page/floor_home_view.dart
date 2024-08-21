@@ -4,9 +4,7 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_manage/res/components/text_style.dart';
 import 'package:hotel_manage/utils/appBar_navBar/navBar.dart';
-import 'package:hotel_manage/view_model/tenant_viewModel/tenant_viewModel.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 import '../../utils/appBar_navBar/customAppBar.dart';
 
