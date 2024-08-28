@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_manage/utils/routes/routes_model.dart';
+import 'package:hotel_manage/utils/routes/routes.dart';
 import 'package:hotel_manage/utils/routes/routes_name.dart';
 import 'package:hotel_manage/view_model/tenant_viewModel/tenant_viewModel.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +23,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      initialRoute: RouteName.Home_view,
-      onGenerateRoute: AppRoutes.generateRoute,
-      // home: Home_Screen(),
+      initialRoute: MyRouteName.LoginScreen2,
+      onGenerateRoute: MyAppRoutes.generateRoute,
     ),
     );
   }
