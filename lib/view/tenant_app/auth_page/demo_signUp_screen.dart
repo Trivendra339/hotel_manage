@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_manage/utils/routes/routes_name.dart';
 import 'package:hotel_manage/utils/utils.dart';
@@ -31,7 +30,7 @@ class _SignUp_Screen2State extends State<SignUp_Screen2> {
     late Size mq = MediaQuery.of(context).size * 1;
     return Scaffold(
         appBar: AppBar(title: TextButton(onPressed: (){
-          Navigator.pushNamed(context, MyRouteName.Login_Signup_Screen2);
+          Navigator.pushNamed(context, AppRouteName.Login_Signup_Screen2);
         },child: const Icon(Icons.arrow_back),),automaticallyImplyLeading: false,),
         body: SingleChildScrollView(
           child: Padding(
@@ -115,14 +114,14 @@ class _SignUp_Screen2State extends State<SignUp_Screen2> {
                     Utils.flushBarMessage(message: "Please enter 6 digit password",icon: Icons.error, context: context);
                   }
                   if(_nameCont.text.isNotEmpty && _phoneNumberCont.text.isNotEmpty &&  _phoneNumberCont.text.isNotEmpty &&_passwordCont.text.length > 5){
-                    Navigator.pushNamed(context, MyRouteName.EnterCodeScreen2);
+                    Navigator.pushNamed(context, AppRouteName.EnterCodeScreen2);
                   }
                 },),
 
                 SizedBox(height: mq.height*0.03,),
 
                 MyRoundButtonOutLine(title: "Login", onPress: (){
-                  Navigator.pushNamed(context, MyRouteName.LoginScreen2);
+                  Navigator.pushNamed(context, AppRouteName.LoginScreen2);
                 }),
 
                 SizedBox(height: mq.height*0.03,),
@@ -130,7 +129,7 @@ class _SignUp_Screen2State extends State<SignUp_Screen2> {
 
 
                 Row(
-                  children: [
+                  children: const [
                     Expanded(
                         child: Divider(thickness: 1,endIndent: 10,color: Colors.black,)),
                     Text("OR"),

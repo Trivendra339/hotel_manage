@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff1f91ff)),
         useMaterial3: true,
       ),
-      initialRoute: MyRouteName.LoginScreen2,
-      onGenerateRoute: MyAppRoutes.generateRoute,
+      initialRoute: AppRouteName.TenantHomeScreen,
+      onGenerateRoute: AppRoutes.generateRoute,
     ),
     );
   }

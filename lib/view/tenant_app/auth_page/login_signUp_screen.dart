@@ -25,16 +25,16 @@ class Login_Signup2 extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
+                  SizedBox(
                       height: 40.8,
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, MyRouteName.SignUpScreen2);
+                          Navigator.pushNamed(context, AppRouteName.SignUpScreen2);
                         },
                         child: const Text(
                           "Login",
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: MyAppColors.blackColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w500),
@@ -66,7 +66,7 @@ class Login_Signup2 extends StatelessWidget {
                   SizedBox(
                     height: mq.height * 0.03,
                   ),
-                  Container(
+                  SizedBox(
                     height: 40.8,
                     width: double.infinity,
                     child: OutlinedButton(
@@ -77,7 +77,7 @@ class Login_Signup2 extends StatelessWidget {
                             style: BorderStyle.solid)),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, MyRouteName.SignUpScreen2);
+                        Navigator.pushNamed(context, AppRouteName.SignUpScreen2);
                       },
                       child: const Text(
                         "Create an account",

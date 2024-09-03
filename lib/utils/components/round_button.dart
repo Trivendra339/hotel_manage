@@ -33,7 +33,7 @@ class MyRoundButtonOutLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 40.8,
       width: double.infinity,
       child: OutlinedButton(

@@ -1,36 +1,58 @@
-import 'dart:ui';
-
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:hotel_manage/utils/components/app_colors.dart';
+import 'package:hotel_manage/utils/components/text_style.dart';
 import 'package:hotel_manage/utils/routes/routes_name.dart';
+import 'package:hotel_manage/utils/tenant_app_utils/appBar_navBar/custom_appbar.dart';
 import 'package:hotel_manage/utils/tenant_app_utils/show_dialog_box.dart';
-import 'package:intl/intl.dart';
-
-import '../../../utils/components/app_colors.dart';
-import '../../../utils/components/text_style.dart';
-import '../../../utils/tenant_app_utils/appBar_navBar/customAppBar.dart';
 
 
-class Tenant_Home_Screen extends StatefulWidget {
-  const Tenant_Home_Screen({super.key});
+
+
+class TenantHomeScreen extends StatefulWidget {
+  const TenantHomeScreen({super.key});
 
   @override
-  State<Tenant_Home_Screen> createState() => _Tenant_Home_ScreenState();
+  State<TenantHomeScreen> createState() => _TenantHomeScreenState();
 }
 
-class _Tenant_Home_ScreenState extends State<Tenant_Home_Screen>
+class _TenantHomeScreenState extends State<TenantHomeScreen>
     with TickerProviderStateMixin {
+
+  List<String> floorNameList = ["GROUND FLOOR","FIRST FLOOR","SECOND FLOOR","THIRD FLOOR","FOURTH FLOOR","FIFTH FLOOR","SIXTH FLOOR","SEVENTH FLOOR",
+    "EIGHTH FLOOR","FOURTH FLOOR","FIFTH FLOOR","SIXTH FLOOR","SEVENTH FLOOR","EIGHTH FLOOR"];
+  List<String> roomCountList = ["room : 102","room : 152","room : 152","room : 200","room : 15R","room : 241","room : 124","room : 141","room : 123",
+  "room : 15R","room : 241","room : 124","room : 141","room : 123"];
+
   var time = DateTime.now();
   late AnimationController _animationController;
-  late Animation _colorsTween, _hotelTween, _iconTween;
+  late Animation _hotelTween, _iconTween,_colorsTween2;
+  late Animation<Color?>  _colorsTween;
   late AnimationController _textAnimationController;
 
   @override
   void initState() {
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 0));
-    _colorsTween = ColorTween(begin: Color(0xFF464e7f), end: Colors.white)
-        .animate(_animationController);
+
+    _colorsTween2 = ColorTween(begin: Colors.transparent, end: Colors.white).animate(_animationController);
+
+    _colorsTween = TweenSequence<Color?>([
+      TweenSequenceItem(
+        weight: 1.0,
+        tween: ColorTween(
+          begin: Color(0xff1f91ff), // Start color
+          end: Color(0xFFBBEEFF),   // Middle gradient color
+        ),
+      ),
+      TweenSequenceItem(
+        weight: 1.0,
+        tween: ColorTween(
+          begin: Color(0xFF99E0FF),   // Middle gradient color
+          end: Colors.white,          // End color
+        ),
+      ),
+    ]).animate(_animationController);
+
     _hotelTween = ColorTween(begin: Colors.white, end: Colors.black)
         .animate(_animationController);
     _iconTween = ColorTween(begin: Colors.white, end: Colors.black)
@@ -59,49 +81,50 @@ class _Tenant_Home_ScreenState extends State<Tenant_Home_Screen>
   @override
   Widget build(BuildContext context) {
 
+    late Size mq = MediaQuery.of(context).size * 1;
+
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: NotificationListener(
-          onNotification: scrollListener,
-          child: Stack(
-            children: [
-              Container(
-                height: double.infinity,
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(15, 95, 15, 18),
-                        decoration: BoxDecoration(
-                            color: Color(0xFF464e7f),
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20))),
-                        child: Container(
-                          height: 140,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                DateFormat(DateFormat.HOUR_MINUTE_SECOND)
-                                    .format(time),
-                                style: myTextStyle25(textColor: MyAppColors.blackColor),
-                              ),
-                              SizedBox(height: 9,),
-                              Text(
-                                "Date This",
-                                style: myTextStyle25(textColor: MyAppColors.blackColor),
+          backgroundColor: MyAppColors.tenantHomeBackColor,
+          body: NotificationListener(
+            onNotification: scrollListener,
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: double.infinity,
+                  child: CustomScrollView(
+                    slivers: [
+
+                      SliverToBoxAdapter(
+                        child: AnimatedBuilder(
+                          animation: _animationController,
+                          builder: (context, child){
+                            return Container(
+                              height: mq.height*0.3,width: double.infinity,
+                              padding: EdgeInsets.fromLTRB(mq.width*0.03, mq.height*0.1, mq.height*0.03,0),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        _colorsTween.value!,
+                                        Colors.white.withOpacity(0.9)
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20))),
+                              child: Container(
+                                color: Colors.white,
+                                child: Text("data "),
                               )
-                            ],
-                          ),
-                        )
+
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    SliverList(delegate: SliverChildBuilderDelegate((context, index){
-                    /*  return Container(padding: EdgeInsets.only(top: 9,bottom: 9,left: 15,right: 15),
+
+                      SliverList(delegate: SliverChildBuilderDelegate((context, index){
+                        /*  return Container(padding: EdgeInsets.only(top: 9,bottom: 9,left: 15,right: 15),
                         margin: EdgeInsets.symmetric(vertical: 12,horizontal: 15),
                         decoration: BoxDecoration(
                           color: Color(0xfff8fafb),
@@ -115,29 +138,35 @@ class _Tenant_Home_ScreenState extends State<Tenant_Home_Screen>
                           ],
                         ),
                       );*/
-                      return InkWell(
-                        onTap: (){Navigator.pushNamed(context, MyRouteName.FloorOFDataScreen);},
-                        child: Card(margin: EdgeInsets.symmetric(vertical: 12,horizontal: 15),
-                          color: Colors.white,
-                          shadowColor: Colors.black,
-                          surfaceTintColor: Color(0xFF464e7f),
-                          elevation: 2.8,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(19))
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 8,bottom: 8,left: 25,right: 20),
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("First Floor",style: myTextStyle20(textColor: Colors.black,textFontWeight: FontWeight.w500),),
-                                IconButton(onPressed: (){showAddRoomDialog(context);}, icon: Icon(Icons.add))
-                              ],
+                        return InkWell(
+                          onTap: (){Navigator.pushNamed(context, AppRouteName.FloorOFDataScreen);},
+                          child: Card(margin: EdgeInsets.symmetric(vertical: 12,horizontal: 20),
+                            color: MyAppColors.tenantHomeCardColor,
+                            surfaceTintColor: MyAppColors.tenantHomeCard2Color,
+                            elevation: 1,
+                            shadowColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(19))
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15,bottom: 15,left: 25,right: 20),
+                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(floorNameList[index],style: myTextStyle20(textColor: Colors.black,textFontWeight: FontWeight.w500),),
+                                      Text(roomCountList[index],style: myTextStyle15(textColor: Colors.black,textFontWeight: FontWeight.w300),),
+                                    ],
+                                  ),
+
+                                  IconButton(onPressed: (){showAddRoomDialog(context);}, icon: Icon(Icons.add))
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },childCount: 20))
-                    /*  SliverGrid(
+                        );
+                      },childCount: 10))
+                      /*  SliverGrid(
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                           maxCrossAxisExtent: 250, crossAxisSpacing: 10,mainAxisSpacing: 10,childAspectRatio: 1.2),
                       delegate: SliverChildBuilderDelegate(
@@ -182,21 +211,24 @@ class _Tenant_Home_ScreenState extends State<Tenant_Home_Screen>
                         childCount: 20
                       ),
                     ) */
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              CustomAppBar(
-                animationController: _animationController,
-                colorsTween: _colorsTween,
-                hotelTween: _hotelTween,
-                iconTween: _iconTween,
-                addIconButton: () {
-                  showAddFloorDialog(context);
-                },
-                menuIconButton: () {},
-              ),
-            ],
+
+                CustomAppBar(
+                  animationController: _animationController,
+                  colorsTween: _colorsTween,
+                  colorsTween2: _colorsTween2,
+                  hotelTween: _hotelTween,
+                  iconTween: _iconTween,
+                  addIconButton: () {
+                    showAddFloorDialog(context);
+                  },
+                  menuIconButton: () {},
+                ),
+              ],
+            ),
           ),
-        ));
+    );
   }
 }

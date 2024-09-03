@@ -1,4 +1,4 @@
-class MyRouteName{
+class AppRouteName{
 
   static const Splash_view = "Splash_Screen";
 

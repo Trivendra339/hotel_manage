@@ -8,6 +8,8 @@ class MyAppColors{
   static const Color authButtonColor2 = Color(0xfff0c3a2d);
   static const Color authButtonColor3 = Color(0xfff0e6377);
 
+  static const Color roundButtonColor3 = Color(0xFF399CFF);
+
   // Login Signup Colors Code_
   static const Color topDesignColor = Color(0xfff170f4a);
 
@@ -17,5 +19,10 @@ class MyAppColors{
   static const Color redColor = Color(0xfff40808);
   static const Color whiteColor = Color(0xffffffff);
   static const Color blackColor = Color(0xFF000000);
-  
+  static const Color greenColor = Color(0xFF34A752);
+
+  static const Color tenantHomeBackColor = Color(0xffeff0f4);
+  static const Color tenantHomeCardColor = Color(0xFFebebeb);
+  static const Color tenantHomeCard2Color = Color(0xffeff0f4);
+
 }

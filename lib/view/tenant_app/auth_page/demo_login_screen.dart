@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_manage/utils/routes/routes_name.dart';
 import 'package:hotel_manage/utils/utils.dart';
@@ -16,7 +15,7 @@ class Login_Screen2 extends StatefulWidget {
 
 class _Login_Screen2State extends State<Login_Screen2> {
 
-  ValueNotifier<bool> _obSecurePassword = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> _obSecurePassword = ValueNotifier<bool>(true);
   final TextEditingController _emailCont = TextEditingController();
   final TextEditingController _passwordCont = TextEditingController();
 
@@ -46,7 +45,7 @@ class _Login_Screen2State extends State<Login_Screen2> {
     late Size mq = MediaQuery.of(context).size * 1;
     return Scaffold(
       appBar: AppBar(title: TextButton(onPressed: (){
-        Navigator.pushNamed(context, MyRouteName.Login_Signup_Screen2);
+        Navigator.pushNamed(context, AppRouteName.Login_Signup_Screen2);
       },child: const Icon(Icons.arrow_back),),automaticallyImplyLeading: false,),
       body: SingleChildScrollView(
         child: Padding(
@@ -98,9 +97,9 @@ class _Login_Screen2State extends State<Login_Screen2> {
 
               SizedBox(height: mq.height*0.01,),
                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [
+                 children: const [
                  Text("Remember ",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: Colors.black38)),
-                 Text("Forgot password",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: MyAppColors.topBarColor))
+                 Text("Forgot password",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: MyAppColors.roundButtonColor))
                ],),
 
         
@@ -117,9 +116,9 @@ class _Login_Screen2State extends State<Login_Screen2> {
                  }
                  if(_emailCont.text.isNotEmpty && _passwordCont.text.isNotEmpty && _passwordCont.text.length <= 2 ){
                    if(_emailCont.value.text == tenantEmail && _passwordCont.value.text == tenantPD){
-                     Navigator.pushNamed(context, MyRouteName.TenantHomeScreen);
+                     Navigator.pushNamed(context, AppRouteName.TenantHomeScreen);
                    }else if(_emailCont.value.text == adminEmail && _passwordCont.value.text == adminPD){
-                     Navigator.pushNamed(context, MyRouteName.AdminHomeScreen);
+                     Navigator.pushNamed(context, AppRouteName.AdminHomeScreen);
                    }else{
                      Utils.flushBarMessage(message: "pls enter correct Id and password", context: context);
                    }
@@ -130,7 +129,7 @@ class _Login_Screen2State extends State<Login_Screen2> {
               SizedBox(height: mq.height*0.03,),
         
               MyRoundButtonOutLine(title: "SignUp", onPress: (){
-                Navigator.pushNamed(context, MyRouteName.SignUpScreen2);
+                Navigator.pushNamed(context, AppRouteName.SignUpScreen2);
               }),
 
               SizedBox(height: mq.height*0.03,),
@@ -138,7 +137,7 @@ class _Login_Screen2State extends State<Login_Screen2> {
 
               
               Row(
-                  children: [
+                  children: const [
                     Expanded(
                         child: Divider(thickness: 1,endIndent: 10,color: Colors.black,)),
                     Text("OR"),

@@ -14,43 +14,43 @@ import '../../view/tenant_app/tenant_page/roomrOF_data_screen.dart';
 import '../../view/tenant_app/tenant_page/tenant_home_screen.dart';
 
 
-class MyAppRoutes {
+class AppRoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
 
     // Account Authentication Routes :-
     switch (settings.name) {
-      case MyRouteName.Splash_view:
+      case AppRouteName.Splash_view:
         return MaterialPageRoute(builder: (context) => const SplashScreen());
 
-      case MyRouteName.LoginScreen:
+      case AppRouteName.LoginScreen:
         return MaterialPageRoute(builder: (context) => const LogIn_Screen());
 
-      case MyRouteName.SignUpScreen:
+      case AppRouteName.SignUpScreen:
         return MaterialPageRoute(builder: (context) => const SignUp_Screen());
 
-      case MyRouteName.Login_Signup_Screen2:
+      case AppRouteName.Login_Signup_Screen2:
         return MaterialPageRoute(builder: (context) => const Login_Signup2());
 
-      case MyRouteName.LoginScreen2:
+      case AppRouteName.LoginScreen2:
         return MaterialPageRoute(builder: (context) => const Login_Screen2());
 
-      case MyRouteName.SignUpScreen2:
+      case AppRouteName.SignUpScreen2:
         return MaterialPageRoute(builder: (context) => const SignUp_Screen2());
 
-      case MyRouteName.EnterCodeScreen2:
+      case AppRouteName.EnterCodeScreen2:
         return MaterialPageRoute(builder: (context) => const Enter_Code2());
 
      // Admin Route :-
-      case MyRouteName.AdminHomeScreen:
+      case AppRouteName.AdminHomeScreen:
         return MaterialPageRoute(builder: (context) => const Admin_Home_Screen());
 
 
     // Tenant Route :-
-      case MyRouteName.TenantHomeScreen:
-        return MaterialPageRoute(builder: (context) =>  Tenant_Home_Screen());
-      case MyRouteName.FloorOFDataScreen:
+      case AppRouteName.TenantHomeScreen:
+        return MaterialPageRoute(builder: (context) =>  TenantHomeScreen());
+      case AppRouteName.FloorOFDataScreen:
         return MaterialPageRoute(builder: (context) =>  FloorOF_Data_Screen());
-      case MyRouteName.RoomOFDataScreen:
+      case AppRouteName.RoomOFDataScreen:
         return MaterialPageRoute(builder: (context) =>  RoomOF_Data_Screen());
 
 
