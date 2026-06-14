@@ -11,25 +11,13 @@ class FloorOFDataScreen extends StatefulWidget {
 class _FloorOFDataScreenState extends State<FloorOFDataScreen>{
   List<String> roomNameList = [
     'Bedroom',
-    "Living Room",
-    "Falana Room",
-    "Dhemkana Room",
-    "bhaiya ke room",
-    "Bhai ke room",
-    "didi ke room",
-    "mera room",
+    "Living Room", 
     'Bedroom',
     "Living Room",
-    "Falana Room",
-    "Dhemkana Room",
-    "bhaiya ke room",
-    "Bhai ke room",
-    "didi ke room",
-    "mera room"
   ];
 
 
-  List roomItemList = [111,654,4645,645,65,445,151,554,514,115,155,45,584,541,152,451,212];
+  List roomItemList = [111,654,45,,212];
 
   var time = DateTime.now();
   late CustomAnimationHelper _animationHelper;
